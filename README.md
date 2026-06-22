@@ -157,7 +157,80 @@ git log --oneline --decorate --graph -n 10
 - `git status` mostra arquivos modificados
 - `git log` mostra histórico de commits
 
-> Dica: sempre faça `git pull` antes de começar a trabalhar para evitar conflitos.
+---
+
+## 🍴 Fork e Pull Request — Como documentar seu trabalho
+
+### O que é um Fork?
+Um **fork** é uma cópia pessoal do repositório na sua conta do GitHub. Permite que você trabalhe sem permissão de escrita no repositório original.
+
+### Fluxo recomendado para alunos
+
+#### 1. Fazer um Fork (apenas uma vez)
+1. Abra https://github.com/danielhinsching/Harve-School
+2. Clique em **Fork** no canto superior direito
+3. GitHub criará uma cópia em `https://github.com/SEU_USUARIO/Harve-School`
+
+#### 2. Clonar seu Fork localmente
+```bash
+git clone https://github.com/SEU_USUARIO/Harve-School.git
+cd Harve-School
+```
+> Substitua `SEU_USUARIO` pelo seu nome de usuário do GitHub.
+
+#### 3. Adicionar o repositório original como "upstream" (remoto)
+```bash
+git remote add upstream https://github.com/danielhinsching/Harve-School.git
+```
+Verificar os remotos:
+```bash
+git remote -v
+```
+
+#### 4. Criar uma branch para seu trabalho
+```bash
+git checkout -b aula-sua-disciplina-seu-nome
+```
+Exemplo: `git checkout -b aula-4-python-etl-joao`
+
+#### 5. Trabalhar e fazer commits
+```bash
+git add .
+git commit -m "Adiciona solução do desafio de quartis"
+```
+
+#### 6. Atualizar com alterações do repositório original
+```bash
+git fetch upstream
+git rebase upstream/main
+```
+
+#### 7. Enviar para seu Fork
+```bash
+git push origin aula-sua-disciplina-seu-nome
+```
+
+#### 8. Abrir um Pull Request
+1. Abra https://github.com/SEU_USUARIO/Harve-School
+2. GitHub detectará sua branch e oferecerá um botão **Compare & pull request**
+3. Clique nele, adicione uma descrição e clique em **Create pull request**
+4. Descreva brevemente o que você adicionou:
+   - Exemplo: "Adiciona solução e comentários da Aula 4 — ETL com Python"
+
+#### 9. Aguardar revisão
+O mantenedor do repositório revisará seu PR e pode:
+- ✅ Aceitar (merge)
+- 💬 Pedir alterações (você corrige e faz push na mesma branch)
+- ❌ Recusar (com feedback)
+
+### Manter seu Fork atualizado
+```bash
+git fetch upstream
+git rebase upstream/main
+git push origin main
+```
+
+> Dica: sempre faça `git pull` ou `git fetch` antes de começar a trabalhar para evitar conflitos.
 
 ---
 
@@ -165,11 +238,12 @@ git log --oneline --decorate --graph -n 10
 1. [Como funciona a pasta por turma/aula](#como-funciona-a-pasta-por-turmaaula)
 2. [Instalação e ambiente](#instalação-e-ambiente)
 3. [Git e terminal](#git-e-terminal)
-4. [Material de Exploração de Dados](#material-de-exploração-de-dados)
-5. [Material de Python ETL](#material-de-python-etl)
-6. [SQLAlchemy e bancos](#sqlalchemy-e-bancos)
-7. [Bibliotecas recomendadas](#bibliotecas-recomendadas)
-8. [Links úteis](#links-úteis)
+4. [Fork e Pull Request](#-fork-e-pull-request--como-documentar-seu-trabalho)
+5. [Material de Exploração de Dados](#material-de-exploração-de-dados)
+6. [Material de Python ETL](#material-de-python-etl)
+7. [SQLAlchemy e bancos](#sqlalchemy-e-bancos)
+8. [Bibliotecas recomendadas](#bibliotecas-recomendadas)
+9. [Links úteis](#links-úteis)
 
 ---
 
