@@ -240,10 +240,11 @@ git push origin main
 3. [Git e terminal](#git-e-terminal)
 4. [Fork e Pull Request](#-fork-e-pull-request--como-documentar-seu-trabalho)
 5. [Material de Exploração de Dados](#material-de-exploração-de-dados)
-6. [Material de Python ETL](#material-de-python-etl)
-7. [SQLAlchemy e bancos](#sqlalchemy-e-bancos)
-8. [Bibliotecas recomendadas](#bibliotecas-recomendadas)
-9. [Links úteis](#links-úteis)
+6. [Perguntas de Revisão — Aula 1](#perguntas-de-revisão--aula-1-exploração-de-dados)
+7. [Material de Python ETL](#material-de-python-etl)
+8. [SQLAlchemy e bancos](#sqlalchemy-e-bancos)
+9. [Bibliotecas recomendadas](#bibliotecas-recomendadas)
+10. [Links úteis](#links-úteis)
 
 ---
 
@@ -367,6 +368,147 @@ Se preferir usar o notebook localmente:
 ```bash
 jupyter notebook
 ```
+
+---
+
+## Perguntas de Revisão — Aula 1: Exploração de Dados
+Use como quiz aberto com a turma ou como autoestudo. As respostas estão no final.
+
+## Tipos de dados
+
+1. Qual a diferença entre dado qualitativo e quantitativo?
+
+2. Nominal e ordinal — qual a diferença? Dê um exemplo de cada.
+
+3. Contínuo e discreto — qual a diferença? Dê um exemplo de cada.
+
+4. Por que telefone é um dado qualitativo, mesmo sendo escrito com números?
+
+5. O que é uma variável dummy (dicotômica)?
+
+6. "Tamanho da casa: pequeno, médio, grande" é que tipo de dado?
+
+## Medidas de posição
+
+1. Como se calcula a média?
+
+2. O que é a mediana e por que precisa ordenar os dados antes?
+
+3. Quando n é par, como se acha a mediana?
+
+4. O que é a moda? Ela pode ter mais de um valor?
+
+5. Por que a média é mais sensível a outliers que a mediana?
+
+6. Se média e mediana são bem diferentes, o que isso indica?
+
+7. Para que serve a média ponderada?
+
+## Separatrizes
+
+1. O que são Q1, Q2 e Q3?
+
+2. Q2 é a mesma coisa que qual outra medida?
+
+3. O que é o IIQ (IQR) e como se calcula?
+
+4. Quais as fórmulas do limite inferior e superior de outlier?
+
+5. O que um boxplot mostra?
+
+6. Outlier é sempre um erro nos dados?
+
+## Dispersão
+
+1. O que a amplitude mede? Qual a fraqueza dela?
+
+2. Qual a diferença entre variância e desvio padrão?
+
+3. Por que o desvio padrão é mais fácil de interpretar que a variância?
+
+4. O que é o coeficiente de variação e por que ele é útil para comparar?
+
+5. Um CV de 40% indica dados previsíveis ou dispersos?
+
+## Python
+
+1. Quais funções calculam média, mediana e moda no pandas?
+
+2. O que `df.describe()` retorna?
+
+3. Para que serve o `df.groupby()`?
+
+4. Qual a diferença entre `.std()` e `.std(ddof=0)`?
+
+---
+
+## Gabarito
+
+**Tipos de dados**
+
+1. Qualitativo descreve uma qualidade ou categoria; quantitativo expressa uma quantidade numérica em que faz sentido somar/subtrair ou medir.
+
+2. Nominal não tem ordem (por exemplo, cor do carro, sabor de sorvete); ordinal tem ordem/escala (por exemplo, tamanho: pequeno, médio, grande).
+
+3. Contínuo pode assumir qualquer valor dentro de um intervalo (por exemplo, altura, peso); discreto tem valores inteiros ou contáveis (por exemplo, número de pessoas, número de vendas).
+
+4. Telefone é qualitativo porque os dígitos são uma etiqueta de identificação, não um valor numérico para operações matemáticas.
+
+5. Variável dummy (dicotômica) é uma variável que só pode assumir dois valores, como 0 e 1, indicando presença/ausência ou sim/não.
+
+6. "Tamanho da casa: pequeno, médio, grande" é um dado ordinal.
+
+**Medidas de posição**
+
+1. A média é a soma dos valores dividida pela quantidade de observações.
+
+2. A mediana é o valor do meio quando os dados estão ordenados; a ordenação é necessária para saber qual valor fica no centro.
+
+3. Quando n é par, a mediana é a média dos dois valores centrais.
+
+4. Moda é o valor que aparece com mais frequência. Sim, pode haver mais de um valor modal ou nenhuma moda.
+
+5. A média usa todos os valores e é afetada por valores extremos; a mediana só depende da posição no conjunto ordenado.
+
+6. Se média e mediana forem bem diferentes, isso indica assimetria na distribuição ou presença de outliers.
+
+7. A média ponderada dá pesos diferentes a cada valor, útil quando nem todas as observações têm a mesma importância.
+
+**Separatrizes**
+
+1. Q1, Q2 e Q3 são os primeiros, segundo e terceiro quartis; dividem os dados em quatro partes iguais.
+
+2. Q2 é a mesma coisa que a mediana.
+
+3. O IIQ (IQR) é a diferença entre Q3 e Q1: IQR = Q3 - Q1.
+
+4. Limite inferior: Q1 - 1,5 × IQR; limite superior: Q3 + 1,5 × IQR.
+
+5. Um boxplot mostra mediana, quartis, faixa interquartílica e possíveis outliers.
+
+6. Não, outlier nem sempre é erro; pode ser um valor raro ou uma variação real que merece investigação.
+
+**Dispersão**
+
+1. Amplitude mede a diferença entre o maior e o menor valor. Sua fraqueza é ser sensível a um único valor extremo.
+
+2. Variância mede a média dos quadrados das distâncias até a média; desvio padrão é a raiz quadrada da variância.
+
+3. Desvio padrão é mais fácil de interpretar porque usa as mesmas unidades dos dados originais.
+
+4. Coeficiente de variação é o desvio padrão dividido pela média; ele compara dispersão relativa entre conjuntos com unidades diferentes.
+
+5. Um CV de 40% indica dados relativamente dispersos e variabilidade alta em relação à média.
+
+**Python**
+
+1. `df['coluna'].mean()`, `df['coluna'].median()`, `df['coluna'].mode()`.
+
+2. `df.describe()` retorna estatísticas descritivas como contagem, média, desvio padrão, valores mínimo/máximo e quartis.
+
+3. `df.groupby()` agrupa dados por uma ou mais colunas para calcular agregações por grupo.
+
+4. `.std()` usa o padrão de amostra (`ddof=1` por padrão); `.std(ddof=0)` calcula o desvio padrão populacional.
 
 ---
 
