@@ -13,7 +13,7 @@ def carregar_fifa():
 
 def plotar_posicoes(dffifa: pd.DataFrame):
     contagem = dffifa['posição'].value_counts().sort_values()
-    contagem.plot.bar()
+    contagem.plot.barh()
     plt.title('Frequência de posições dos jogadores')
     plt.xlabel('Posição')
     plt.ylabel('Contagem')
